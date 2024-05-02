@@ -35,7 +35,10 @@ void SelectionSort<type>::Sort(type *array, int unsortedSize, int sortedSize)
         int minIndex = sortedSize;                      // * index of minimum value is the item after the sorted portion.
         for (int i = sortedSize; i < unsortedSize; i++) // *check all non-sorted values for new minimum
             if (array[i] < array[minIndex])             // *If new minimum is found
+            {
                 minIndex = i;
+                Sorter<type>::incrementCounter();
+            }
 
         // * add next value to sorted portion
         int temp = array[sortedSize];

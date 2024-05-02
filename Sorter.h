@@ -24,6 +24,7 @@ public:
     void setAccess(T *p);
     int getSize() const;
     void incrementCounter();
+    int getCounter();
 };
 
 template <class T>
@@ -70,7 +71,7 @@ template <class T>
 void Sorter<T>::FillRandom() const
 {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
-    std::cout << "Inside the FillRandom() class" << std::endl; //! DEBUG PRINT
+    // std::cout << "Inside the FillRandom() class" << std::endl; //! DEBUG PRINT
     for (int i = 0; i < size; i++)
     {
         int random = std::rand() % size + 1; // *biggest number it can be is 100;
@@ -91,25 +92,25 @@ void Sorter<T>::FillRandom() const
         access[i] = random;
     }
 
-    std::cout << "Done" << std::endl; //! DEBUG PRINT
+    // std::cout << "Done" << std::endl; //! DEBUG PRINT
 };
 
 template <class T>
 void Sorter<T>::FillInOrder() const
 {
-    std::cout << "Inside the FillInOrder() class" << std::endl; //! DEBUG PRINT
+    // std::cout << "Inside the FillInOrder() class" << std::endl; //! DEBUG PRINT
     for (int i = 0; i < size; i++)
         access[i] = i + 1;
-    std::cout << "Done" << std::endl; //! DEBUG PRINT
+    // std::cout << "Done" << std::endl; //! DEBUG PRINT
 };
 
 template <class T>
 void Sorter<T>::FillReverse() const
 {
-    std::cout << "Inside the FillReverse() class" << std::endl; //! DEBUG PRINT
+    // std::cout << "Inside the FillReverse() class" << std::endl; //! DEBUG PRINT
     for (int i = size; i > 0; i--)
         access[size - i] = i;
-    std::cout << "Done" << std::endl; //! DEBUG PRINT
+    // std::cout << "Done" << std::endl; //! DEBUG PRINT
 };
 
 template <class T>
@@ -123,5 +124,8 @@ int Sorter<T>::getSize() const { return size; };
 
 template <class T>
 void Sorter<T>::incrementCounter() { counter++; };
+
+template <class T>
+int Sorter<T>::getCounter() { return counter; }
 
 #endif
